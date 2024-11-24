@@ -42,36 +42,16 @@ Este proyecto permite la construcción de un **Data Warehouse** desde datos en f
 
 ## Estructura del Proyecto
 DW_DataShop/
-├── data/                     # Contiene los archivos CSV con los datos fuente
-│   ├── Almacenes.csv
-│   ├── clientes.csv
-│   ├── Entregas.csv
-│   ├── EstadoDelPedido.csv
-│   ├── productos.csv
-│   ├── Proveedores.csv
-│   ├── tiendas.csv
-│   ├── ventas.csv
-│
-├── etl_scripts/              # Scripts ETL para cargar datos y procedimientos almacenados
-│   ├── db_connection.py      # Archivo de conexión a la base de datos
-│   ├── etl_carga_stg_clientes.py
-│   ├── etl_carga_stg_tiendas.py
-│   ├── etl_carga_stg_ventas.py
-│   ├── etl_carga_stg_productos.py
-│   ├── etl_carga_stg_proveedores.py
-│   ├── etl_carga_stg_estado_pedido.py
-│   ├── etl_carga_stg_almacenes.py
-│   ├── etl_carga_stg_entregas.py
-│   ├── carga_dim_fact.py     # Script para cargar las tablas dim y fact
-│   ├── etl_carga_sp.py       # Script para ejecutar todos los SP (Int, Dim y Fact)
-│   ├── main_etl.py           # Script principal para orquestar todo el flujo ETL
-│
-├── Reporte de Ventas.xlsx    # Reporte generado (opcional)
-├── DW_DataShop-db.png        # Diagrama del modelo de datos (opcional)
-├── sp.txt                    # Archivo con los stored procedures en formato texto
-├── README.md                 # Documentación del proyecto
+Esquema de Data Warehouse en SQL Server:
 
+Dimensiones 
+Tabla de Hechos
+Scripts en Python:
 
+Se desarrollaron scripts en Python para cargar los datos desde archivos CSV a las tablas de SQL Server. Los scripts permiten transformar y limpiar los datos antes de su carga en las tablas correspondientes del Data Warehouse.
+Reportes en Power BI:
+
+Se diseñaron y crearon visualizaciones en Power BI, incluyendo KPIs y gráficos interactivos que permiten explorar el rendimiento de ventas por tienda, producto, cliente y período.
 ## Flujo de Trabajo
 
 1. **ETL a Tablas Staging (`stg`)**:
@@ -127,5 +107,5 @@ Script principal: main_etl.py para orquestar todo el flujo.
 
 1. **Clonar el Repositorio**:
    ```bash
-   git clone https://github.com/franjimenxz/DataShop-DW-QualesGroup.git
+   git clone https://github.com/franjimenxz/integrador-qualesgroup.git
    cd DataShop-DW-QualesGroup
