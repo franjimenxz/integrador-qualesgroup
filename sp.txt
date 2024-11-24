@@ -1,0 +1,62 @@
+CREATE OR ALTER PROCEDURE sp_carga_Int_Clientes AS
+BEGIN
+    INSERT INTO int.Clientes (ID_Cliente, Razon_Social, Telefono, Mail, Direccion, Localidad, Provincia, CP)
+    SELECT DISTINCT ID_Cliente, Razon_Social, Telefono, Mail, Direccion, Localidad, Provincia, CP
+    FROM stg.Clientes;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Tiendas AS
+BEGIN
+    INSERT INTO int.Tiendas (ID_Tienda, Descripcion, Direccion, Localidad, Provincia, CP, Tipo_Tienda)
+    SELECT DISTINCT ID_Tienda, Descripcion, Direccion, Localidad, Provincia, CP, Tipo_Tienda
+    FROM stg.Tiendas;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Ventas AS
+BEGIN
+    INSERT INTO int.Ventas (ID_Venta, Fecha_Venta, ID_Producto, Cantidad, Precio_Venta, ID_Cliente, ID_Tienda)
+    SELECT DISTINCT ID_Venta, Fecha_Venta, ID_Producto, Cantidad, Precio_Venta, ID_Cliente, ID_Tienda
+    FROM stg.Ventas;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Productos AS
+BEGIN
+    INSERT INTO int.Productos (ID_Producto, Descripcion, Categoria, Marca, Precio_Costo, Precio_Venta_Sugerido)
+    SELECT DISTINCT ID_Producto, Descripcion, Categoria, Marca, Precio_Costo, Precio_Venta_Sugerido
+    FROM stg.Productos;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Proveedores AS
+BEGIN
+    INSERT INTO int.Proveedores (ID_Proveedor, Nombre_Proveedor, Costo_Estimado)
+    SELECT DISTINCT ID_Proveedor, Nombre_Proveedor, Costo_Estimado
+    FROM stg.Proveedores;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Almacenes AS
+BEGIN
+    INSERT INTO int.Almacenes (ID_Almacen, Nombre_Almacen, Ubicacion)
+    SELECT DISTINCT ID_Almacen, Nombre_Almacen, Ubicacion
+    FROM stg.Almacenes;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_Entregas AS
+BEGIN
+    INSERT INTO int.Entregas (ID_Entrega, ID_Venta, ID_Proveedor, ID_Almacen, ID_Estado, Fecha_Envio, Fecha_Entrega)
+    SELECT DISTINCT ID_Entrega, ID_Venta, ID_Proveedor, ID_Almacen, ID_Estado, Fecha_Envio, Fecha_Entrega
+    FROM stg.Entregas;
+END;
+
+
+CREATE OR ALTER PROCEDURE sp_carga_Int_EstadoPedido AS
+BEGIN
+    INSERT INTO int.EstadoPedido (ID_Estado, Descripcion_Estado)
+    SELECT DISTINCT ID_Estado, Descripcion_Estado
+    FROM stg.EstadoPedido;
+END;
